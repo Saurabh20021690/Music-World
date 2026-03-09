@@ -1,0 +1,130 @@
+.main-view {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.main-view-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 332px;
+    background-image: linear-gradient(rgba(33, 33, 33, 0.8) 0, var(--bg-base) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 24px 24px 24px;
+}
+
+/* Greeting Section & Quick Picks */
+.greeting-section {
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.greeting {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--essential-base);
+}
+
+.quick-picks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 12px 24px;
+}
+
+.quick-pick-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    height: 64px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quick-pick-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.quick-pick-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.quick-pick-title {
+    padding: 0 16px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--essential-base);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Shelf Sections */
+.shelf-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.shelf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 16px;
+}
+
+.shelf-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--essential-base);
+}
+
+.shelf-header h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.show-all {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.show-all:hover {
+    text-decoration: underline;
+}
+
+.card-grid {
+    display: grid;
+    /* Use auto-fill or auto-fit for responsive layout but max columns */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+    overflow: hidden;
+    /* Hide overflow to mimic spotify row */
+}
+
+@media (max-width: 1200px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

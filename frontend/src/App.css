@@ -1,0 +1,64 @@
+.app-layout {
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+    "sidebar main"
+    "player player";
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: 1fr var(--player-height);
+  padding: var(--panel-gap);
+  gap: var(--panel-gap);
+  padding-bottom: 0px;
+  /* Player touches the bottom */
+}
+
+.panel {
+  background-color: var(--bg-base);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-container {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-gap);
+  background-color: transparent;
+  /* panels inside have background */
+}
+
+/* Sidebar has two main panels usually: Nav, and Library */
+.sidebar-panel {
+  background-color: var(--bg-base);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.main-view-container {
+  grid-area: main;
+  position: relative;
+}
+
+.player-container {
+  grid-area: player;
+  background-color: var(--bg-press);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Will be updated in Player component */
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-areas:
+      "main"
+      "player";
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-container {
+    display: none;
+  }
+}

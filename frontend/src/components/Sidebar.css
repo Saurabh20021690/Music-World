@@ -1,0 +1,183 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+  padding: 8px;
+  background: #000;
+  color: #b3b3b3;
+  animation: slideIn 0.4s ease;
+}
+
+/* Panels */
+.sidebar-panel {
+  background: #121212;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* Navigation */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #fff;
+}
+
+.nav-item.active {
+  color: #fff;
+}
+
+/* Library Header */
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.library-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Buttons */
+
+.library-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+/* Library content */
+
+.library-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Scrollbar */
+
+.library-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.library-content::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 10px;
+}
+
+/* Empty Library */
+
+.empty-library {
+  background: #1f1f1f;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.empty-library h4 {
+  font-size: 16px;
+  color: #fff;
+}
+
+.empty-library p {
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.create-playlist-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.create-playlist-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Playlist list */
+
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.playlist-item {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.playlist-item:hover {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+.active-playlist {
+  background: #282828;
+  color: #fff;
+}
+
+/* Animation */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

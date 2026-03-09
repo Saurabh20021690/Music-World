@@ -1,0 +1,158 @@
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 24px;
+
+    position:sticky;
+    top:0;
+    z-index:50;
+
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.35);
+
+    transition:background 0.3s ease;
+}
+
+
+/* LEFT SIDE */
+.topbar-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+
+/* RIGHT SIDE */
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+
+/* NAVIGATION CIRCLE */
+.nav-circle{
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+    border:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,0.7);
+    color:var(--essential-base);
+
+    cursor:pointer;
+
+    transition:all 0.2s ease;
+}
+
+.nav-circle:hover{
+    transform:scale(1.08);
+    background:rgba(0,0,0,0.9);
+}
+
+
+/* PROFILE BUTTON */
+.profile-btn{
+    width:36px;
+    height:36px;
+
+    border-radius:50%;
+    border:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--bg-elevated-base);
+    color:white;
+
+    cursor:pointer;
+
+    transition:all 0.2s ease;
+}
+
+.profile-btn:hover{
+    transform:scale(1.05);
+}
+
+
+/* PREMIUM BUTTON */
+.premium-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+    border:none;
+
+    font-size:14px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    color:black;
+    background:white;
+
+    transition:all 0.2s ease;
+}
+
+.premium-btn:hover{
+    transform:scale(1.05);
+}
+
+
+/* INSTALL BUTTON */
+.install-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,0.2);
+    background:transparent;
+
+    color:var(--text-subdued);
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all 0.2s ease;
+}
+
+.install-btn:hover{
+    color:white;
+    border-color:white;
+}
+
+
+/* LINK RESET */
+.topbar-link{
+    text-decoration:none;
+}
+
+
+/* MOBILE */
+@media (max-width:900px){
+
+.topbar-right .premium-btn{
+    display:none;
+}
+
+.install-btn{
+    display:none;
+}
+
+}
