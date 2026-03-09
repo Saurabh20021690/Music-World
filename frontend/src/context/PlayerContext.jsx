@@ -52,7 +52,7 @@ export const PlayerProvider = ({ children }) => {
             // Construct exact url if needed or just use relative if proxy is setup
             // Assuming backend runs on 5000 and url returned by db starts with /uploads
             //const backendUrl = 'http://localhost:5000';
-                 const backendUrl = ' https://music-world-taupe.vercel.app';
+                 const backendUrl = 'https://music-world-taupe.vercel.app';
            
             const audioSrc = song.audioUrl.startsWith('http') ? song.audioUrl : `${backendUrl}${song.audioUrl}`;
             audioRef.current.src = audioSrc;
