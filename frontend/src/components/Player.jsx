@@ -50,7 +50,7 @@ const Player = () => {
             {/* Current Track Info */}
             <div className="player-left">
                 <img
-                    src={currentSong.coverImage.startsWith('http') ? currentSong.coverImage : `http://localhost:5000${currentSong.coverImage}`}
+                    src={currentSong.coverImage.startsWith('http') ? currentSong.coverImage : ` https://music-world-taupe.vercel.app${currentSong.coverImage}`}
                     alt="Album Cover"
                     className="current-track-img"
                 />

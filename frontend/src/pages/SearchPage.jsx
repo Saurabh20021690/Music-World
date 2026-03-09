@@ -23,7 +23,7 @@ const SearchPage = () => {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/api/songs")
+      .get(" https://music-world-taupe.vercel.app/api/songs")
       .then(res => setSongs(res.data))
       .catch(err => console.log(err));
 

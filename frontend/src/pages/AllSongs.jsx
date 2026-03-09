@@ -10,7 +10,7 @@ const AllSongs = () => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:5000/api/songs")
+    axios.get(" https://music-world-taupe.vercel.app/api/songs")
       .then(res => setSongs(res.data))
       .catch(err => console.log(err));
 
@@ -48,7 +48,7 @@ const AllSongs = () => {
             imageUrl={
               song.coverImage.startsWith("http")
                 ? song.coverImage
-                : `http://localhost:5000${song.coverImage}`
+                : ` https://music-world-taupe.vercel.app${song.coverImage}`
             }
             onPlay={() => playSong(song)}
           />

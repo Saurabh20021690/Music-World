@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { PlayerContext } from "../context/PlayerContext";
 
-const API = "http://localhost:5000";
+const API = " https://music-world-taupe.vercel.app";
 
 const PlaylistPage = () => {
 
