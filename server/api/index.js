@@ -4,8 +4,8 @@
 //import cors from 'cors';
 //import path from 'path';
 //import { fileURLToPath } from 'url';
-//import songRoutes from '../routes/songs.js';
-//import playlistRoutes from '../routes/playlists.js';
+//import songRoutes from './routes/songs.js';
+//import playlistRoutes from './routes/playlists.js';
 
 //dotenv.config();
 
@@ -56,7 +56,7 @@ dotenv.config();
 
 const app = express();
 
-// Fix __dirname for ES modules
+// Fix __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -64,34 +64,37 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
-// Static folder for uploads
+// Static uploads
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // MongoDB connection
-let isConnected = false;
+let cached = global.mongoose;
 
-const connectDB = async () => {
-  if (isConnected) return;
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
 
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    isConnected = true;
-    console.log("MongoDB Connected");
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
+async function connectDB() {
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(process.env.MONGODB_URI, {
+      bufferCommands: false
+    }).then((mongoose) => mongoose);
   }
-};
 
-connectDB();
+  cached.conn = await cached.promise;
+  return cached.conn;
+}
 
-// Root route
+await connectDB();
+
+// Routes
 app.get("/", (req, res) => {
-  res.send("Music World API is running");
+  res.send("Music API running");
 });
 
-// API routes
 app.use("/api/songs", songRoutes);
 app.use("/api/playlists", playlistRoutes);
 
-// Export for Vercel
 export default app;
